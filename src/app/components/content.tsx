@@ -8,7 +8,10 @@ import { MdMailOutline } from "react-icons/md";
 import { IoPhonePortraitOutline } from "react-icons/io5";
 import { VscCalendar } from "react-icons/vsc";
 import { VscLocation } from "react-icons/vsc";
-
+import { FaBook } from "react-icons/fa6";
+import { LiaLaptopCodeSolid } from "react-icons/lia";
+import { TbDeviceGamepad2 } from "react-icons/tb";
+import { TbApi } from "react-icons/tb";
 const saira = Saira({
   variable: "--saira",
   subsets: ["latin"],
@@ -130,16 +133,104 @@ export const About = () => {
           <div className="bg-[#41A2EB] w-[54px] h-2 rounded-md"></div>
         </div>
 
-        <p>
+        <p className="text-white mx-6 text-lg my-4 text-justify ">
           Hi there! I recently graduated with a Bachelor of Science and
           Technology in Software Development. I’ve got a solid foundation in
           programming and software creation, and I’m known for being a quick
           learner. I enjoy diving into new technologies and figuring out how
-          they work. I’ve tackled a range of projects, from web apps to mobile
+          they work. <br></br>
+          <br></br> I’ve tackled a range of projects, from web apps to mobile
           apps, and I’m excited to bring my skills and enthusiasm to a new team.
           Whether it's coding, collaborating, or picking up new tools, I'm
           always ready for the challenge and eager to keep growing.
         </p>
+
+        <h1 className="text-white text-[28px] font-semibold my-4">
+          What I'm Doing
+        </h1>
+
+        <div className="grid grid-cols-2 gap-4">
+          <div className="w-[360px] bg-[#1D1D21] h-[112px] rounded-lg flex justify-center items-center px-7">
+            <div className="flex gap-4  ">
+              <div className="bg-[#1D1D21] text-[#3478F6]  border border-white/10 w-16 h-10 rounded-md flex justify-center place-content-center items-center">
+                <FaBook />
+              </div>
+              <div className="flex  items-center  text-white">
+                <div>
+                  <h3 className="text-[16px] font-bold text-white">Learning</h3>
+                  <p className="text-[10px] font-medium">
+                    I'm currently taking online courses to improve my
+                    programming skills.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex justify-between">
+            <div className="w-[360px] bg-[#1D1D21] h-[112px] rounded-lg flex justify-center items-center px-7">
+              <div className="flex gap-4  ">
+                <div className="bg-[#1D1D21] text-[#3478F6]  border border-white/10 w-16 h-10 rounded-md flex justify-center place-content-center items-center">
+                  <LiaLaptopCodeSolid className="text-2xl" />
+                </div>
+                <div className="flex  items-center  text-white">
+                  <div>
+                    <h3 className="text-[16px] font-bold text-white">
+                      Frontend Development
+                    </h3>
+                    <p className="text-[10px] font-medium">
+                      I am currently utilizing React and Next.js in to create
+                      dynamic web applications.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex justify-between">
+            <div className="w-[360px] bg-[#1D1D21] h-[112px] rounded-lg flex justify-center items-center px-7">
+              <div className="flex gap-4  ">
+                <div className="bg-[#1D1D21] text-[#3478F6]  border border-white/10 w-16 h-10 rounded-md flex justify-center place-content-center items-center">
+                  <TbApi className="text-2xl" />
+                </div>
+                <div className="flex  items-center  text-white">
+                  <div>
+                    <h3 className="text-[16px] font-bold text-white">
+                      Backend Development
+                    </h3>
+                    <p className="text-[10px] font-medium">
+                      I use Laravel for backend development in some projects and
+                      Next.js for SSR and API routes in others.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex justify-between">
+            <div className="w-[360px] bg-[#1D1D21] h-[112px] rounded-lg flex justify-center items-center px-7">
+              <div className="flex gap-4  ">
+                <div className="bg-[#1D1D21] text-[#3478F6]  border border-white/10 w-16 h-10 rounded-md flex justify-center place-content-center items-center">
+                  <TbDeviceGamepad2 className="text-2xl" />
+                </div>
+                <div className="flex  items-center  text-white">
+                  <div>
+                    <h3 className="text-[16px] font-bold text-white">
+                      Game Development
+                    </h3>
+                    <p className="text-[10px] font-medium text-justify">
+                      I develop games as a hobby using Unity, leveraging its
+                      powerful engine to create immersive and engaging
+                      experiences.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
