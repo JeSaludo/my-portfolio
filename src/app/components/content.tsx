@@ -12,6 +12,10 @@ import { FaBook } from "react-icons/fa6";
 import { LiaLaptopCodeSolid } from "react-icons/lia";
 import { TbDeviceGamepad2 } from "react-icons/tb";
 import { TbApi } from "react-icons/tb";
+import { IoMdBook } from "react-icons/io";
+import { BsFillSendFill } from "react-icons/bs";
+import { useState } from "react";
+
 const saira = Saira({
   variable: "--saira",
   subsets: ["latin"],
@@ -25,213 +29,525 @@ const poppins = Poppins({
 
 const Hero = () => {
   return (
-    <div className={` mt-10 mb-[260px] space-y-4 ${poppins.className}`}>
-      <div className="mx-auto w-[250px] rounded-xl h-10 flex justify-center items-center text-center bg-[#232328]">
-        <h1 className="text-white">Hi, I am Jan Eris Saludo</h1>
-      </div>
-
-      <h1
-        className={`text-white ${saira.className} font-bold text-5xl w-[800px] text-center leading-normal mx-auto `}
+    <section id="home">
+      <div
+        className={` mt-10 mb-[100px] lg:mb-[260px] space-y-4 ${poppins.className}`}
       >
-        Passionate <span className="text-[#3478F6]">full-stack developer</span>{" "}
-        with a focus on building
-        <span className="text-[#3478F6]"> innovative web solutions</span>
-      </h1>
+        <div className="mx-auto text-xs lg:text-default w-[170px] lg:w-[250px] rounded-xl px-4 h-8 lg:h-10 flex justify-center items-center text-center bg-[#232328] transition-all ease-in-out duration-300">
+          <h1 className="text-white">Hi, I am Jan Eris Saludo</h1>
+        </div>
 
-      <Button></Button>
+        <h1
+          className={`text-white ${saira.className} font-bold text-xl  md:text-4xl lg:text-5xl   px-4   mx-auto  w-[400px] md:w-[640px] lg:w-[800px] text-center lg:leading-normal transition-all ease-in-out duration-300`}
+        >
+          Passionate{" "}
+          <span className="text-[#3478F6]">full-stack developer</span> with a
+          focus on building
+          <span className="text-[#3478F6]"> innovative web solutions</span>
+        </h1>
+
+        <Button></Button>
+      </div>
+    </section>
+  );
+};
+export default Hero;
+
+export const About = () => {
+  const [isContactOpen, SetContactModal] = useState(false);
+  return (
+    <section id="about" className="py-10 lg:py-20">
+      <div
+        className={`space-y-2 lg:flex gap-4 mx-auto w-full place-content-center items-center ${poppins.className}`}
+      >
+        <div className="flex flex-col lg:block border border-white/15 lg:w-[329px] lg:h-[709px] rounded-2xl p-8 mx-4 relative">
+          <div className="flex lg:block gap-6 ">
+            <div className=" w-[100px] h-[100px] lg:w-[200px] lg:h-[200px] text-center mx-auto mt-4 lg:my-5">
+              <Image
+                width={500}
+                height={500}
+                src={"/resume/profile.png"}
+                alt="profile"
+                quality={100}
+              ></Image>
+            </div>
+            <div className="w-full my-2 ">
+              <h1 className="text-xl font-medium text-white  sm:text-left lg:text-center my-4 ">
+                Jan Eris M. Saludo
+              </h1>
+
+              <div className="bg-[#2F2F35] w-[111px] h-6 text-white text-[9px] flex justify-center  text-center items-center sm:mx-0 lg:mx-auto rounded-lg">
+                <p>Full Stack Developer</p>
+              </div>
+            </div>
+          </div>
+          <div className="lg:hidden absolute top-0 right-0 transition-all ease-in-out duration-300">
+            <button
+              onClick={() => {
+                SetContactModal(!isContactOpen);
+              }}
+              className="px-5 rounded-tr-xl rounded-bl-xl py-2 text-white border-white/10 border text-xs"
+            >
+              Show Contact
+            </button>
+          </div>
+          <div
+            className={`${
+              isContactOpen ? "block" : "hidden"
+            } transition-all ease-in-out duration-300`}
+          >
+            <hr className="my-8 border-white/10" />
+            <div className="space-y-4 ml-8">
+              <div className="flex gap-5 ">
+                <div className="bg-[#1D1D21] text-[#3478F6]  border border-white/10 w-10 h-10 rounded-md flex justify-center place-content-center items-center">
+                  <MdMailOutline />
+                </div>
+                <div className="flex  items-center  text-white">
+                  <div>
+                    <h3 className="text-[9px] font-light text-[#8E8A8A]">
+                      EMAIL
+                    </h3>
+                    <p className="text-[10px]">janerissaludo@gmail.com</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex gap-5 ">
+                <div className="bg-[#1D1D21] text-[#3478F6]  border border-white/10 w-10 h-10 rounded-md flex justify-center place-content-center items-center">
+                  <IoPhonePortraitOutline />
+                </div>
+                <div className="flex  items-center  text-white">
+                  <div>
+                    <h3 className="text-[9px] font-light text-[#8E8A8A]">
+                      PHONE
+                    </h3>
+                    <p className="text-[10px]">+63 927 702 2469</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex gap-5 ">
+                <div className="bg-[#1D1D21] text-[#3478F6]  border border-white/10 w-10 h-10 rounded-md flex justify-center place-content-center items-center">
+                  <VscCalendar />
+                </div>
+                <div className="flex  items-center  text-white">
+                  <div>
+                    <h3 className="text-[9px] font-light text-[#8E8A8A]">
+                      BIRTHDAY
+                    </h3>
+                    <p className="text-[10px]">January 19, 2002</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex gap-5 ">
+                <div className="bg-[#1D1D21] text-[#3478F6]  border border-white/10 w-11 h-10 rounded-md flex justify-center place-content-center items-center">
+                  <VscLocation />
+                </div>
+                <div className="flex  items-center  text-white">
+                  <div>
+                    <h3 className="text-[9px] font-light text-[#8E8A8A]">
+                      LOCATION
+                    </h3>
+                    <p className="text-[10px]">
+                      Makati City, Metro Manila, Philippines
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="border border-white/15 mx-4 lg:w-[815px] lg:h-[755px] rounded-2xl  p-8  transition-all ease-in-out duration-300">
+          <div className="space-y-3">
+            <h1 className="font-bold text-3xl text-white">About Me</h1>
+            <div className="bg-[#41A2EB] w-[54px] h-2 rounded-md"></div>
+          </div>
+
+          <p className="text-white mx-6 text-lg my-4 text-justify ">
+            Hi there! I recently graduated with a Bachelor of Science and
+            Technology in Software Development. I’ve got a solid foundation in
+            programming and software creation, and I’m known for being a quick
+            learner. I enjoy diving into new technologies and figuring out how
+            they work. <br></br>
+            <br></br> I’ve tackled a range of projects, from web apps to mobile
+            apps, and I’m excited to bring my skills and enthusiasm to a new
+            team. Whether it's coding, collaborating, or picking up new tools,
+            I'm always ready for the challenge and eager to keep growing.
+          </p>
+
+          <h1 className="text-white text-[28px] font-semibold my-4">
+            What I'm Doing
+          </h1>
+
+          <div className="grid lg:grid-cols-2 gap-4 transition-all ease-in-out duration-300">
+            <div className="w-[360px] bg-[#1D1D21] h-[112px] rounded-lg flex justify-center items-center px-7">
+              <div className="flex gap-4 items-center justify-evenly">
+                <div className="bg-[#1D1D21] text-[#3478F6] border border-white/10 w-10 h-10 rounded-md flex justify-center items-center">
+                  <FaBook />
+                </div>
+                <div className="flex-1 flex items-center text-white">
+                  <div>
+                    <h3 className="text-[16px] font-bold text-white">
+                      Learning
+                    </h3>
+                    <p className="text-[10px] font-medium">
+                      I'm currently taking online courses to improve my
+                      programming skills.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="flex justify-between">
+              <div className="w-[360px] bg-[#1D1D21] h-[112px] rounded-lg flex justify-center items-center px-7 ">
+                <div className="flex gap-4  items-center justify-evenly ">
+                  <div className="bg-[#1D1D21] text-[#3478F6]  border border-white/10 w-10 h-10 rounded-md flex justify-center items-center ">
+                    <LiaLaptopCodeSolid className="text-2xl" />
+                  </div>
+                  <div className="flex-1 flex  items-center  text-white">
+                    <div>
+                      <h3 className="text-[16px] font-bold text-white">
+                        Frontend Development
+                      </h3>
+                      <p className="text-[10px] font-medium">
+                        I am currently utilizing React and Next.js in to create
+                        dynamic web applications.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex justify-between">
+              <div className="w-[360px] bg-[#1D1D21] h-[112px] rounded-lg flex justify-center items-center px-7">
+                <div className="flex gap-4 items-center justify-evenly">
+                  <div className="bg-[#1D1D21] text-[#3478F6]  border border-white/10 w-10 h-10 rounded-md flex justify-center  items-center">
+                    <TbApi className="text-2xl w-full" />
+                  </div>
+                  <div className="flex-1 flex  items-center  text-white">
+                    <div>
+                      <h3 className="text-[16px] font-bold text-white">
+                        Backend Development
+                      </h3>
+                      <p className="text-[10px] font-medium">
+                        I use Laravel for backend development in some projects
+                        and Next.js for SSR and API routes in other projects.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex justify-between">
+              <div className="w-[360px] bg-[#1D1D21] h-[112px] rounded-lg flex justify-center items-center px-7">
+                <div className="flex gap-4  items-center justify-evenly ">
+                  <div className="bg-[#1D1D21] text-[#3478F6]  border border-white/10 w-10 h-10 rounded-md flex justify-center place-content-center items-center">
+                    <TbDeviceGamepad2 className="text-2xl" />
+                  </div>
+                  <div className="flex-1 flex  items-center  text-white">
+                    <div>
+                      <h3 className="text-[16px] font-bold text-white">
+                        Game Development
+                      </h3>
+                      <p className="text-[10px] font-medium">
+                        I develop games as a hobby using Unity, leveraging its
+                        powerful engine to create immersive and engaging
+                        experiences.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export const Resume = () => {
+  return (
+    <section id="resume" className="py-20">
+      <div
+        className={`border border-white/15 max-w-[1152px] rounded-2xl p-8 mx-4 xl:mx-auto ${poppins.className} transition-all ease-in-out duration-300`}
+      >
+        <div className="flex justify-between items-start">
+          <div className="space-y-3">
+            <h1 className="font-bold text-3xl text-white">Resume</h1>
+            <div className="bg-[#41A2EB] w-[54px] h-2 rounded-md"></div>
+          </div>
+          <button className="hover:bg-[#232328] bg-[#1D1D21] w-[160px] h-[50px] flex justify-center items-center text-white rounded-md text-[18px]">
+            Download
+          </button>
+        </div>
+
+        <div className="my-8 mx-12">
+          <div className="flex gap-4 justify-items-center items-center">
+            <div className="w-10 h-10 border border-white/10 text-[#3478F6] flex justify-center items-center rounded-lg">
+              <IoMdBook />
+            </div>
+            <h1 className="font-medium text-[26px] text-white">Education</h1>
+          </div>
+
+          <ol className="relative border-s border-white/10 pl-4 ml-5 text-white ">
+            <li>
+              <time className="inline-block h-full"></time>
+            </li>
+            <li className="mb-4 ms-4">
+              <Image
+                src="/resume/timeline.svg"
+                alt="Timeline Dot"
+                width={12}
+                height={12}
+                className="absolute -start-1.5"
+              />
+              <time className="text-sm font-semibold">Primary School</time>
+              <h2 className="text-lg font-medium">
+                Lord of Lords Christian School
+              </h2>
+              <p className="text-sm">2008 - 2014</p>
+            </li>
+
+            <li className="mb-4 ms-4">
+              <Image
+                src="/resume/timeline.svg"
+                alt="Timeline Dot"
+                width={12}
+                height={12}
+                className="absolute -start-1.5"
+              />
+              <time className="text-sm font-semibold">High School</time>
+              <h2 className="text-lg font-medium">
+                Marinduque National High School
+              </h2>
+              <p className="text-sm">2014 - 2018</p>
+            </li>
+
+            <li className="mb-4 ms-4">
+              <Image
+                src="/resume/timeline.svg"
+                alt="Timeline Dot"
+                width={12}
+                height={12}
+                className="absolute -start-1.5"
+              />
+              <time className="text-sm font-semibold">Senior High School</time>
+              <h2 className="text-lg font-medium">
+                Marinduque Midwest College
+              </h2>
+              <p className="text-sm">2018 - 2020</p>
+            </li>
+            <li className=" ms-4 ">
+              <Image
+                src="/resume/timeline.svg"
+                alt="Timeline Dot"
+                width={12}
+                height={12}
+                className="absolute -start-1.5"
+              />
+              <time className="text-sm font-semibold">College</time>
+              <h2 className="text-lg font-medium">
+                Marinduque State University
+              </h2>
+              <p className="text-sm font-light font">2020 - 2024</p>
+              <p className="text-sm">
+                Bachelor of Science in Information Technology - Major in
+                Software Development
+              </p>
+            </li>
+          </ol>
+
+          <div className="my-8">
+            <div className="flex gap-4 justify-items-center items-center">
+              <div className="w-10 h-10 border border-white/10 text-[#3478F6] flex justify-center items-center rounded-lg">
+                <IoMdBook />
+              </div>
+              <h1 className="font-medium text-[26px] text-white">Experience</h1>
+            </div>
+
+            <ol className="relative border-s border-white/10 pl-4 ml-5 text-white ">
+              <li className="">
+                <time className="inline-block h-full"></time>
+              </li>
+              <li className=" ms-4 ">
+                <Image
+                  src="/resume/timeline.svg"
+                  alt="Timeline Dot"
+                  width={12} // Adjust size as needed
+                  height={12} // Adjust size as needed
+                  className="absolute -start-1.5"
+                />
+                <h2 className="text-lg font-medium">
+                  Internship - Software Development
+                </h2>
+                <h2 className="text-lg font-medium">Cloud Manila</h2>
+                <p className="text-sm font-light font">February - May 2024</p>
+                <p className="text-sm">
+                  I have extensive experience in identifying and fixing bugs in
+                  software systems. I also add new features to existing systems
+                  that use AngularJS and ASP.NET, improving their functionality
+                  and performance.
+                </p>
+              </li>
+            </ol>
+          </div>
+
+          <div className="text-white my-8">
+            <h1 className="text-2xl my-4">TechStack</h1>
+
+            <TechStackCard />
+          </div>
+
+          <div className="text-white my-8">
+            <h1 className="text-2xl my-4">Development Tools</h1>
+
+            <DevCard />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export const Portfolio = () => {
+  return (
+    <section id="portfolio" className="py-20">
+      <div
+        className={`border border-white/15 max-w-[1152px]  rounded-2xl p-8 mx-4 xl:mx-auto ${poppins.className} transition-all ease-in-out duration-300`}
+      >
+        <div className="space-y-3">
+          <h1 className="font-bold text-3xl text-white">Portfolio</h1>
+          <div className="bg-[#41A2EB] w-[54px] h-2 rounded-md"></div>
+        </div>
+
+        <ul className="my-4 space-x-2 lg:space-x-10 text-white text-xs">
+          <button>All</button>
+          <button>Web Development</button>
+          <button>Game Development</button>
+          <button>Applications</button>
+        </ul>
+
+        <div className="grid grid-cols-3 gap-4">
+          <div className="bg-white h-[120px] lg:h-[300px] rounded-lg"></div>
+          <div className="bg-white h-[120px] lg:h-[300px] rounded-lg"></div>
+          <div className="bg-white h-[120px] lg:h-[300px] rounded-lg"></div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const techstack = [
+  { src: "/techstack/html.svg", name: "HTML" },
+  { src: "/techstack/css.svg", name: "CSS" },
+  { src: "/techstack/javascript.svg", name: "JavaScript" },
+  { src: "/techstack/nodejs.svg", name: "Node.js" },
+  { src: "/techstack/react.svg", name: "React" },
+  { src: "/techstack/tailwind.svg", name: "TailwindCSS" },
+  { src: "/techstack/nextjs.svg", name: "Next.js" },
+  { src: "/techstack/mongodb.svg", name: "MongoDB" },
+  { src: "/techstack/php.svg", name: "Php" },
+  { src: "/techstack/laravel.svg", name: "Laravel" },
+  { src: "/techstack/mysql.svg", name: "MySql" },
+  { src: "/techstack/c-sharp.svg", name: "C#" },
+];
+const TechStackCard = () => {
+  return (
+    <div className="grid grid-cols-2 lg:grid-cols-6 gap-2">
+      {techstack.map((stack) => (
+        <div
+          key={stack.name} // Add a unique key for each element
+          className="flex justify-evenly items-center bg-[#1D1D21] py-2 rounded-lg h-12" // Adjust the height as needed
+        >
+          <Image
+            className="w-6 h-6 lg:w-8 lg:h-8"
+            src={stack.src}
+            width={40}
+            height={40}
+            alt={stack.name}
+          />
+          <h1 className="text-xs lg-text-default">{stack.name}</h1>
+        </div>
+      ))}
     </div>
   );
 };
 
-export default Hero;
-
-export const About = () => {
+const developmentTools = [
+  { src: "/tools/git.svg", name: "Git" },
+  { src: "/tools/github.svg", name: "Github" },
+  { src: "/tools/figma.svg", name: "Figma" },
+  { src: "/tools/vs.svg", name: "Visual Studio" },
+];
+const DevCard = () => {
   return (
-    <div
-      className={`flex gap-4 mx-auto w-full place-content-center items-center ${poppins.className}`}
-    >
-      <div className="border border-white/15 w-[329px] h-[709px] rounded-2xl p-8 ">
-        <div className="w-[200px] h-[200px] text-center mx-auto my-5">
+    <div className="grid grid-cols-2 lg:grid-cols-6 gap-2">
+      {developmentTools.map((tool) => (
+        <div
+          key={tool.name} // Add a unique key for each element
+          className="flex justify-evenly items-center bg-[#1D1D21] py-2 rounded-lg h-12" // Adjust the height as needed
+        >
           <Image
-            width={500}
-            height={500}
-            src={"/resume/profile.png"}
-            alt="profile"
-            quality={100}
-          ></Image>
+            className="w-6 h-6 lg:w-8 lg:h-8"
+            src={tool.src}
+            width={40}
+            height={40}
+            alt={tool.name}
+          />
+          <h1 className="text-xs lg-text-default whitespace-nowrap">
+            {tool.name}
+          </h1>
         </div>
+      ))}
+    </div>
+  );
+};
 
-        <h1 className="text-xl font-medium text-white text-center my-4">
-          Jan Eris M. Saludo
-        </h1>
-
-        <div className="bg-[#2F2F35] w-[111px] h-6 text-white text-[9px] flex justify-center  text-center items-center mx-auto rounded-lg">
-          <p>Full Stack Developer</p>
-        </div>
-
-        <hr className="my-8 border-white/10" />
-        <div className="space-y-4 ml-8">
-          <div className="flex gap-5 ">
-            <div className="bg-[#1D1D21] text-[#3478F6]  border border-white/10 w-10 h-10 rounded-md flex justify-center place-content-center items-center">
-              <MdMailOutline />
-            </div>
-            <div className="flex  items-center  text-white">
-              <div>
-                <h3 className="text-[9px] font-light text-[#8E8A8A]">EMAIL</h3>
-                <p className="text-[10px]">janerissaludo@gmail.com</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex gap-5 ">
-            <div className="bg-[#1D1D21] text-[#3478F6]  border border-white/10 w-10 h-10 rounded-md flex justify-center place-content-center items-center">
-              <IoPhonePortraitOutline />
-            </div>
-            <div className="flex  items-center  text-white">
-              <div>
-                <h3 className="text-[9px] font-light text-[#8E8A8A]">PHONE</h3>
-                <p className="text-[10px]">+63 927 702 2469</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex gap-5 ">
-            <div className="bg-[#1D1D21] text-[#3478F6]  border border-white/10 w-10 h-10 rounded-md flex justify-center place-content-center items-center">
-              <VscCalendar />
-            </div>
-            <div className="flex  items-center  text-white">
-              <div>
-                <h3 className="text-[9px] font-light text-[#8E8A8A]">
-                  BIRTHDAY
-                </h3>
-                <p className="text-[10px]">January 19, 2002</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex gap-5 ">
-            <div className="bg-[#1D1D21] text-[#3478F6]  border border-white/10 w-11 h-10 rounded-md flex justify-center place-content-center items-center">
-              <VscLocation />
-            </div>
-            <div className="flex  items-center  text-white">
-              <div>
-                <h3 className="text-[9px] font-light text-[#8E8A8A]">
-                  LOCATION
-                </h3>
-                <p className="text-[10px]">
-                  Makati City, Metro Manila, Philippines
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="border border-white/15 w-[815px] h-[755px] rounded-2xl  p-8 ">
-        <div className="space-y-3">
-          <h1 className="font-bold text-3xl text-white">About Me</h1>
+export const Contact = () => {
+  return (
+    <section id="contact" className="py-20">
+      <div
+        className={`border border-white/15 lg-w-[1152px]  rounded-2xl p-8 mx-4 xl:mx-auto ${poppins.className} transition-all ease-in-out duration-300`}
+      >
+        <div className="space-y-3 mb-8">
+          <h1 className="font-bold text-3xl text-white">Contact</h1>
           <div className="bg-[#41A2EB] w-[54px] h-2 rounded-md"></div>
         </div>
 
-        <p className="text-white mx-6 text-lg my-4 text-justify ">
-          Hi there! I recently graduated with a Bachelor of Science and
-          Technology in Software Development. I’ve got a solid foundation in
-          programming and software creation, and I’m known for being a quick
-          learner. I enjoy diving into new technologies and figuring out how
-          they work. <br></br>
-          <br></br> I’ve tackled a range of projects, from web apps to mobile
-          apps, and I’m excited to bring my skills and enthusiasm to a new team.
-          Whether it's coding, collaborating, or picking up new tools, I'm
-          always ready for the challenge and eager to keep growing.
-        </p>
-
-        <h1 className="text-white text-[28px] font-semibold my-4">
-          What I'm Doing
-        </h1>
-
-        <div className="grid grid-cols-2 gap-4">
-          <div className="w-[360px] bg-[#1D1D21] h-[112px] rounded-lg flex justify-center items-center px-7">
-            <div className="flex gap-4  ">
-              <div className="bg-[#1D1D21] text-[#3478F6]  border border-white/10 w-16 h-10 rounded-md flex justify-center place-content-center items-center">
-                <FaBook />
-              </div>
-              <div className="flex  items-center  text-white">
-                <div>
-                  <h3 className="text-[16px] font-bold text-white">Learning</h3>
-                  <p className="text-[10px] font-medium">
-                    I'm currently taking online courses to improve my
-                    programming skills.
-                  </p>
-                </div>
-              </div>
-            </div>
+        <div className="text-white space-y-4">
+          <div className="grid grid-cols-2 gap-4">
+            <input
+              type="text"
+              className="w-full py-2 placeholder:px-4 placeholder:text-[#ACACAC] rounded-md border-white/10 bg-transparent border"
+              placeholder="Full Name"
+            />
+            <input
+              type="email"
+              className="w-full py-2 placeholder:px-4 placeholder:text-[#ACACAC] rounded-md border-white/10 bg-transparent border"
+              placeholder="Email Address"
+            />
           </div>
 
-          <div className="flex justify-between">
-            <div className="w-[360px] bg-[#1D1D21] h-[112px] rounded-lg flex justify-center items-center px-7">
-              <div className="flex gap-4  ">
-                <div className="bg-[#1D1D21] text-[#3478F6]  border border-white/10 w-16 h-10 rounded-md flex justify-center place-content-center items-center">
-                  <LiaLaptopCodeSolid className="text-2xl" />
-                </div>
-                <div className="flex  items-center  text-white">
-                  <div>
-                    <h3 className="text-[16px] font-bold text-white">
-                      Frontend Development
-                    </h3>
-                    <p className="text-[10px] font-medium">
-                      I am currently utilizing React and Next.js in to create
-                      dynamic web applications.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <textarea
+            className="w-full py-2 px-4 placeholder:px-4 placeholder:text-[#ACACAC] rounded-md border-white/10 bg-transparent border"
+            placeholder="Message"
+            rows={5}
+          ></textarea>
 
-          <div className="flex justify-between">
-            <div className="w-[360px] bg-[#1D1D21] h-[112px] rounded-lg flex justify-center items-center px-7">
-              <div className="flex gap-4  ">
-                <div className="bg-[#1D1D21] text-[#3478F6]  border border-white/10 w-16 h-10 rounded-md flex justify-center place-content-center items-center">
-                  <TbApi className="text-2xl" />
-                </div>
-                <div className="flex  items-center  text-white">
-                  <div>
-                    <h3 className="text-[16px] font-bold text-white">
-                      Backend Development
-                    </h3>
-                    <p className="text-[10px] font-medium">
-                      I use Laravel for backend development in some projects and
-                      Next.js for SSR and API routes in others.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex justify-between">
-            <div className="w-[360px] bg-[#1D1D21] h-[112px] rounded-lg flex justify-center items-center px-7">
-              <div className="flex gap-4  ">
-                <div className="bg-[#1D1D21] text-[#3478F6]  border border-white/10 w-16 h-10 rounded-md flex justify-center place-content-center items-center">
-                  <TbDeviceGamepad2 className="text-2xl" />
-                </div>
-                <div className="flex  items-center  text-white">
-                  <div>
-                    <h3 className="text-[16px] font-bold text-white">
-                      Game Development
-                    </h3>
-                    <p className="text-[10px] font-medium text-justify">
-                      I develop games as a hobby using Unity, leveraging its
-                      powerful engine to create immersive and engaging
-                      experiences.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="flex justify-end">
+            <button>
+              <span className="flex justify-items-end items-center gap-2 text-[#3478F6]  bg-[#1D1D21] border py-2 px-4 rounded-lg border-white/10 ">
+                <BsFillSendFill className=" flex" /> Send Message
+              </span>
+            </button>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

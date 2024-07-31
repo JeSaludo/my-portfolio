@@ -43,3 +43,7 @@
   -moz-transform: translateX(0px);
   transform: translateX(0px);
 }
+.gradient-border {
+  border: 2px solid transparent; /* Adjust the border width as needed */
+  border-image: linear-gradient(to right, #3478f6, rgba(255, 255, 255, 0.1)) 1;
+}

@@ -25,7 +25,7 @@ export default function Button() {
 
       <Link
         className={`rounded-2xl flex justify-center gap-2 h-10  items-center  bg-[#202020]  w-[140px] text-center text-white hover:bg-[#232328]`}
-        href={"/#resume"}
+        href={"/#contact"}
       >
         <GrContact className="inline-block " />
         <span>Contact</span>
