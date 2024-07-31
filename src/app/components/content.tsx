@@ -92,9 +92,9 @@ export const About = () => {
             </button>
           </div>
           <div
-            className={`${
-              isContactOpen ? "block" : "hidden"
-            } transition-all ease-in-out duration-300`}
+            className={`${isContactOpen ? "block" : "hidden"}
+            lg:block
+            transition-all ease-in-out duration-300`}
           >
             <hr className="my-8 border-white/10" />
             <div className="space-y-4 ml-8">
@@ -181,9 +181,9 @@ export const About = () => {
             What I'm Doing
           </h1>
 
-          <div className="grid lg:grid-cols-2 gap-4 transition-all ease-in-out duration-300">
-            <div className="w-[360px] bg-[#1D1D21] h-[112px] rounded-lg flex justify-center items-center px-7">
-              <div className="flex gap-4 items-center justify-evenly">
+          <div className="grid gap-6 transition-all ease-in-out duration-300 lg:grid-cols-2 sm:grid-cols-1">
+            <div className="w-full bg-[#1D1D21] h-[112px] rounded-lg flex justify-center items-center px-7">
+              <div className="flex gap-4 items-center">
                 <div className="bg-[#1D1D21] text-[#3478F6] border border-white/10 w-10 h-10 rounded-md flex justify-center items-center">
                   <FaBook />
                 </div>
@@ -200,65 +200,60 @@ export const About = () => {
                 </div>
               </div>
             </div>
-            <div className="flex justify-between">
-              <div className="w-[360px] bg-[#1D1D21] h-[112px] rounded-lg flex justify-center items-center px-7 ">
-                <div className="flex gap-4  items-center justify-evenly ">
-                  <div className="bg-[#1D1D21] text-[#3478F6]  border border-white/10 w-10 h-10 rounded-md flex justify-center items-center ">
-                    <LiaLaptopCodeSolid className="text-2xl" />
-                  </div>
-                  <div className="flex-1 flex  items-center  text-white">
-                    <div>
-                      <h3 className="text-[16px] font-bold text-white">
-                        Frontend Development
-                      </h3>
-                      <p className="text-[10px] font-medium">
-                        I am currently utilizing React and Next.js in to create
-                        dynamic web applications.
-                      </p>
-                    </div>
+
+            <div className="w-full bg-[#1D1D21] h-[112px] rounded-lg flex justify-center items-center px-7">
+              <div className="flex gap-4 items-center">
+                <div className="bg-[#1D1D21] text-[#3478F6] border border-white/10 w-10 h-10 rounded-md flex justify-center items-center">
+                  <LiaLaptopCodeSolid className="text-2xl" />
+                </div>
+                <div className="flex-1 flex items-center text-white">
+                  <div>
+                    <h3 className="text-[16px] font-bold text-white">
+                      Frontend Development
+                    </h3>
+                    <p className="text-[10px] font-medium">
+                      I am currently utilizing React and Next.js to create
+                      dynamic web applications.
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="flex justify-between">
-              <div className="w-[360px] bg-[#1D1D21] h-[112px] rounded-lg flex justify-center items-center px-7">
-                <div className="flex gap-4 items-center justify-evenly">
-                  <div className="bg-[#1D1D21] text-[#3478F6]  border border-white/10 w-10 h-10 rounded-md flex justify-center  items-center">
-                    <TbApi className="text-2xl w-full" />
-                  </div>
-                  <div className="flex-1 flex  items-center  text-white">
-                    <div>
-                      <h3 className="text-[16px] font-bold text-white">
-                        Backend Development
-                      </h3>
-                      <p className="text-[10px] font-medium">
-                        I use Laravel for backend development in some projects
-                        and Next.js for SSR and API routes in other projects.
-                      </p>
-                    </div>
+            <div className="w-full bg-[#1D1D21] h-[112px] rounded-lg flex justify-center items-center px-7">
+              <div className="flex gap-4 items-center">
+                <div className="bg-[#1D1D21] text-[#3478F6] border border-white/10 w-10 h-10 rounded-md flex justify-center items-center">
+                  <TbApi className="text-2xl" />
+                </div>
+                <div className="flex-1 flex items-center text-white">
+                  <div>
+                    <h3 className="text-[16px] font-bold text-white">
+                      Backend Development
+                    </h3>
+                    <p className="text-[10px] font-medium">
+                      I use Laravel for backend development in some projects and
+                      Next.js for SSR and API routes in other projects.
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="flex justify-between">
-              <div className="w-[360px] bg-[#1D1D21] h-[112px] rounded-lg flex justify-center items-center px-7">
-                <div className="flex gap-4  items-center justify-evenly ">
-                  <div className="bg-[#1D1D21] text-[#3478F6]  border border-white/10 w-10 h-10 rounded-md flex justify-center place-content-center items-center">
-                    <TbDeviceGamepad2 className="text-2xl" />
-                  </div>
-                  <div className="flex-1 flex  items-center  text-white">
-                    <div>
-                      <h3 className="text-[16px] font-bold text-white">
-                        Game Development
-                      </h3>
-                      <p className="text-[10px] font-medium">
-                        I develop games as a hobby using Unity, leveraging its
-                        powerful engine to create immersive and engaging
-                        experiences.
-                      </p>
-                    </div>
+            <div className="w-full bg-[#1D1D21] h-[112px] rounded-lg flex justify-center items-center px-7">
+              <div className="flex gap-4 items-center">
+                <div className="bg-[#1D1D21] text-[#3478F6] border border-white/10 w-10 h-10 rounded-md flex justify-center items-center">
+                  <TbDeviceGamepad2 className="text-2xl" />
+                </div>
+                <div className="flex-1 flex items-center text-white">
+                  <div>
+                    <h3 className="text-[16px] font-bold text-white">
+                      Game Development
+                    </h3>
+                    <p className="text-[10px] font-medium">
+                      I develop games as a hobby using Unity, leveraging its
+                      powerful engine to create immersive and engaging
+                      experiences.
+                    </p>
                   </div>
                 </div>
               </div>
