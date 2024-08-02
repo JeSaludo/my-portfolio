@@ -29,8 +29,8 @@ export async function POST(request: NextRequest) {
     const clientMailOptions = {
       from: process.env.EMAIL_USER,
       to: email,
-      subject: "Thank you for contacting me",
-      text: `Hi ${fname},\n\nThank you for reaching out. We have received your message and will get back to you shortly.\n\nYour message: ${message}\n\nBest regards,\nJan Eris Saludo`,
+      subject: "Thank you for contacting us",
+      text: `Hi ${fname},\n\nThank you for reaching out. I have received your message and I will get back to you shortly.\n\nYour message: ${message}\n\nBest regards,\nJan Eris Saludo`,
     };
 
     await transporter.sendMail(mailOptions);
