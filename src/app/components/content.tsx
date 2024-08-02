@@ -451,7 +451,7 @@ export const Portfolio = () => {
           <button disabled>Applications</button>
         </ul>
 
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid  md:grid-cols-3 gap-4">
           <div>
             <div className="bg-white h-[200px] lg:h-[270px] rounded-lg overflow-hidden relative">
               <Image
@@ -464,7 +464,9 @@ export const Portfolio = () => {
             </div>
             <div className="m-2">
               <h1 className="text-white">OFSPTS For Butterfly</h1>
-              <p className="text-sm text-gray-300  font-extralight">Website</p>
+              <p className="text-sm text-gray-300  font-extralight">
+                Web Development
+              </p>
             </div>
           </div>
           <div>
@@ -479,7 +481,9 @@ export const Portfolio = () => {
             </div>{" "}
             <div className="m-2 ">
               <h1 className="text-white">Equali</h1>
-              <p className="text-sm text-gray-300  font-extralight">Website</p>
+              <p className="text-sm text-gray-300  font-extralight">
+                Website Development
+              </p>
             </div>
           </div>
           <div>
