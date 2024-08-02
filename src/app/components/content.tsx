@@ -528,11 +528,12 @@ export const Contact = () => {
         throw new Error("Network response was not ok");
       }
 
-      const data = await res.json();
-      alert(`Response received: ${JSON.stringify(data)}`);
-    } catch (error: any) {
-      alert(`There was an error: ${error.message}`);
-    }
+      setInfo({
+        fname: "",
+        email: "",
+        message: "",
+      });
+    } catch (error: any) {}
   };
 
   return (

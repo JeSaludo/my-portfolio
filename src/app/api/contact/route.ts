@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
       from: process.env.GMAIL_EMAIL_ADDRESS,
       to: "janerissaludo.work@gmail.com",
       subject: "New Message From  JS Web Portfolio",
-      text: `Hello, I am ${fname}, this is test message`,
+      text: message,
     };
 
     const clientMailOptions = {
