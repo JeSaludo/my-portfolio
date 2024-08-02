@@ -16,6 +16,8 @@ import { IoMdBook } from "react-icons/io";
 import { BsFillSendFill } from "react-icons/bs";
 import { useState } from "react";
 
+import { motion } from "framer-motion";
+
 const saira = Saira({
   variable: "--saira",
   subsets: ["latin"],
@@ -38,7 +40,7 @@ const Hero = () => {
         </div>
 
         <h1
-          className={`text-white ${saira.className} font-bold text-xl  md:text-4xl lg:text-5xl   px-4   mx-auto  w-[400px] md:w-[640px] lg:w-[800px] text-center lg:leading-normal transition-all ease-in-out duration-300`}
+          className={`text-white ${saira.className} font-bold text-xl  md:text-4xl lg:text-5xl px-4 mx-auto w-[400px] md:w-[640px] lg:w-[800px] text-center lg:leading-normal transition-all ease-in-out duration-300`}
         >
           Passionate{" "}
           <span className="text-[#3478F6]">full-stack developer</span> with a
@@ -55,10 +57,11 @@ export default Hero;
 
 export const About = () => {
   const [isContactOpen, SetContactModal] = useState(false);
+
   return (
     <section id="about" className="py-10 lg:py-20">
       <div
-        className={`space-y-2 lg:flex gap-4 mx-auto w-full place-content-center items-center ${poppins.className}`}
+        className={`space-y-2 lg:flex gap-4 mx-auto w-full max-w-screen-xl place-content-center items-center ${poppins.className}`}
       >
         <div className="flex flex-col lg:block border border-white/15 lg:w-[329px] lg:h-[709px] rounded-2xl p-8 mx-4 relative">
           <div className="flex lg:block gap-6 ">
@@ -165,7 +168,7 @@ export const About = () => {
             <div className="bg-[#41A2EB] w-[54px] h-2 rounded-md"></div>
           </div>
 
-          <p className="text-white mx-6 text-lg my-4 text-justify ">
+          <p className="text-white mx-6  text-xs lg:text-lg my-4 text-justify ">
             Hi there! I recently graduated with a Bachelor of Science and
             Technology in Software Development. I’ve got a solid foundation in
             programming and software creation, and I’m known for being a quick
@@ -281,7 +284,7 @@ export const Resume = () => {
           </button>
         </div>
 
-        <div className="my-8 mx-12">
+        <div className="my-8 lg:mx-12">
           <div className="flex gap-4 justify-items-center items-center">
             <div className="w-10 h-10 border border-white/10 text-[#3478F6] flex justify-center items-center rounded-lg">
               <IoMdBook />
@@ -466,7 +469,7 @@ const TechStackCard = () => {
             height={40}
             alt={stack.name}
           />
-          <h1 className="text-xs lg-text-default">{stack.name}</h1>
+          <h1 className="text-[9px]  lg-text-default">{stack.name}</h1>
         </div>
       ))}
     </div>
@@ -494,7 +497,7 @@ const DevCard = () => {
             height={40}
             alt={tool.name}
           />
-          <h1 className="text-xs lg-text-default whitespace-nowrap">
+          <h1 className="text-[9px] lg-text-default whitespace-nowrap">
             {tool.name}
           </h1>
         </div>
@@ -504,44 +507,82 @@ const DevCard = () => {
 };
 
 export const Contact = () => {
+  const [info, setInfo] = useState({
+    fname: "",
+    email: "",
+    message: "",
+  });
+
+  const OnSubmit = async (e: any) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(info),
+      });
+
+      if (!res.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const data = await res.json();
+      alert(`Response received: ${JSON.stringify(data)}`);
+    } catch (error: any) {
+      alert(`There was an error: ${error.message}`);
+    }
+  };
+
   return (
     <section id="contact" className="py-20">
       <div
-        className={`border border-white/15 lg-w-[1152px]  rounded-2xl p-8 mx-4 xl:mx-auto ${poppins.className} transition-all ease-in-out duration-300`}
+        className={`border border-white/15 max-w-[1152px]  rounded-2xl p-8 mx-4 xl:mx-auto ${poppins.className} transition-all ease-in-out duration-300`}
       >
         <div className="space-y-3 mb-8">
           <h1 className="font-bold text-3xl text-white">Contact</h1>
           <div className="bg-[#41A2EB] w-[54px] h-2 rounded-md"></div>
         </div>
+        <form onSubmit={OnSubmit}>
+          <div className="text-white space-y-4">
+            <div className="grid grid-cols-2 gap-4">
+              <input
+                onChange={(e) => {
+                  setInfo({ ...info, fname: e.target.value });
+                }}
+                type="text"
+                className="w-full py-2 placeholder:px-4 px-4 placeholder:text-[#ACACAC] rounded-md border-white/10 bg-transparent border"
+                placeholder="Full Name"
+              />
+              <input
+                onChange={(e) => {
+                  setInfo({ ...info, email: e.target.value });
+                }}
+                type="email"
+                className="w-full py-2 placeholder:px-4 px-4 placeholder:text-[#ACACAC] rounded-md border-white/10 bg-transparent border"
+                placeholder="Email Address"
+              />
+            </div>
 
-        <div className="text-white space-y-4">
-          <div className="grid grid-cols-2 gap-4">
-            <input
-              type="text"
-              className="w-full py-2 placeholder:px-4 placeholder:text-[#ACACAC] rounded-md border-white/10 bg-transparent border"
-              placeholder="Full Name"
-            />
-            <input
-              type="email"
-              className="w-full py-2 placeholder:px-4 placeholder:text-[#ACACAC] rounded-md border-white/10 bg-transparent border"
-              placeholder="Email Address"
-            />
+            <textarea
+              className="w-full py-2  placeholder:px-4 px-4 placeholder:text-[#ACACAC] rounded-md border-white/10 bg-transparent border"
+              placeholder="Message"
+              rows={5}
+              onChange={(e) => {
+                setInfo({ ...info, message: e.target.value });
+              }}
+            ></textarea>
+
+            <div className="flex justify-end">
+              <button type="submit">
+                <span className="flex justify-items-end items-center gap-2 text-[#3478F6]  bg-[#1D1D21] border py-2 px-4 rounded-lg border-white/10 ">
+                  <BsFillSendFill className=" flex" /> Send Message
+                </span>
+              </button>
+            </div>
           </div>
-
-          <textarea
-            className="w-full py-2 px-4 placeholder:px-4 placeholder:text-[#ACACAC] rounded-md border-white/10 bg-transparent border"
-            placeholder="Message"
-            rows={5}
-          ></textarea>
-
-          <div className="flex justify-end">
-            <button>
-              <span className="flex justify-items-end items-center gap-2 text-[#3478F6]  bg-[#1D1D21] border py-2 px-4 rounded-lg border-white/10 ">
-                <BsFillSendFill className=" flex" /> Send Message
-              </span>
-            </button>
-          </div>
-        </div>
+        </form>
       </div>
     </section>
   );

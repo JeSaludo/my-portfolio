@@ -22,7 +22,7 @@ export const Footer = () => {
           <div className="flex gap-2">
             <Link href="https://www.facebook.com/ekuzen.1192/">
               <Image
-                src={"/contact/facebook.svg"}
+                src={"/contact/Facebook.svg"}
                 alt="facebook"
                 width={30}
                 height={30}
