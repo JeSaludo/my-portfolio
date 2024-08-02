@@ -619,9 +619,10 @@ export const Contact = () => {
   });
 
   const [popupVisible, setPopupVisible] = useState(false); // State for popup visibility
-
+  const [isPending, setTransition] = useState(false);
   const OnSubmit = async (e: any) => {
     e.preventDefault();
+    setTransition(true);
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -640,7 +641,7 @@ export const Contact = () => {
         email: "",
         message: "",
       });
-
+      setTransition(false);
       setPopupVisible(true); // Show popup on success
     } catch (error: any) {
       console.error(error); // Optionally handle the error
@@ -679,6 +680,7 @@ export const Contact = () => {
                 placeholder="Full Name"
                 value={info.fname}
                 required
+                disabled={isPending}
               />
               <input
                 onChange={(e) => {
@@ -689,6 +691,7 @@ export const Contact = () => {
                 placeholder="Email Address"
                 value={info.email}
                 required
+                disabled={isPending}
               />
             </div>
 
@@ -699,14 +702,16 @@ export const Contact = () => {
               onChange={(e) => {
                 setInfo({ ...info, message: e.target.value });
               }}
+              disabled={isPending}
               value={info.message}
               required
             ></textarea>
 
             <div className="flex justify-end">
-              <button type="submit">
+              <button type="submit" disabled={isPending}>
                 <span className="flex justify-items-end items-center gap-2 text-[#3478F6] bg-[#1D1D21] border py-2 px-4 rounded-lg border-white/10">
-                  <BsFillSendFill className="flex" /> Send Message
+                  <BsFillSendFill className="flex" />{" "}
+                  {isPending ? "Sending... " : "Send Message"}
                 </span>
               </button>
             </div>
