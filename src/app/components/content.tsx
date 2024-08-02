@@ -59,7 +59,14 @@ export const About = () => {
   const [isContactOpen, SetContactModal] = useState(false);
 
   return (
-    <section id="about" className="py-10 lg:py-20">
+    <motion.section
+      initial={{ scale: 0.8 }}
+      whileInView={{ scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ type: "spring", stiffness: 100, damping: 20, duration: 1 }}
+      id="about"
+      className="py-10 lg:py-20"
+    >
       <div
         className={`space-y-2 lg:flex gap-4 mx-auto w-full max-w-screen-xl place-content-center items-center ${poppins.className}`}
       >
@@ -264,13 +271,20 @@ export const About = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
 export const Resume = () => {
   return (
-    <section id="resume" className="py-20">
+    <motion.section
+      initial={{ x: -300, opacity: 0 }}
+      whileInView={{ x: 0, opacity: 1 }}
+      transition={{ type: "spring", stiffness: 100, damping: 20, duration: 2 }}
+      viewport={{ once: true }}
+      id="resume"
+      className="py-10 lg:py-20"
+    >
       <div
         className={`border border-white/15 max-w-[1152px] rounded-2xl p-8 mx-4 xl:mx-auto ${poppins.className} transition-all ease-in-out duration-300`}
       >
@@ -408,13 +422,20 @@ export const Resume = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
 export const Portfolio = () => {
   return (
-    <section id="portfolio" className="py-20">
+    <motion.section
+      initial={{ x: 200, opacity: 0 }}
+      whileInView={{ x: 0, opacity: 1 }}
+      transition={{ type: "spring", stiffness: 100, damping: 20, duration: 2 }}
+      viewport={{ once: true }}
+      id="portfolio"
+      className="py-10 lg:py-20"
+    >
       <div
         className={`border border-white/15 max-w-[1152px]  rounded-2xl p-8 mx-4 xl:mx-auto ${poppins.className} transition-all ease-in-out duration-300`}
       >
@@ -424,19 +445,99 @@ export const Portfolio = () => {
         </div>
 
         <ul className="my-4 space-x-2 lg:space-x-10 text-white text-xs">
-          <button>All</button>
-          <button>Web Development</button>
-          <button>Game Development</button>
-          <button>Applications</button>
+          <button disabled>All</button>
+          <button disabled>Web Development</button>
+          <button disabled>Game Development</button>
+          <button disabled>Applications</button>
         </ul>
 
         <div className="grid grid-cols-3 gap-4">
-          <div className="bg-white h-[120px] lg:h-[300px] rounded-lg"></div>
-          <div className="bg-white h-[120px] lg:h-[300px] rounded-lg"></div>
-          <div className="bg-white h-[120px] lg:h-[300px] rounded-lg"></div>
+          <div>
+            <div className="bg-white h-[200px] lg:h-[270px] rounded-lg overflow-hidden relative">
+              <Image
+                src="/projects/butterfly.png"
+                alt="Butterfly Website"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-lg hover:scale-110 transition-all ease-in-out duration-200"
+              />
+            </div>
+            <div className="m-2">
+              <h1 className="text-white">OFSPTS For Butterfly</h1>
+              <p className="text-sm text-gray-300  font-extralight">Website</p>
+            </div>
+          </div>
+          <div>
+            <div className="bg-white h-[200px] lg:h-[270px] rounded-lg overflow-hidden relative">
+              <Image
+                src="/projects/equali.png"
+                alt="Equali Website"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-lg hover:scale-110 transition-all ease-in-out duration-200"
+              />
+            </div>{" "}
+            <div className="m-2 ">
+              <h1 className="text-white">Equali</h1>
+              <p className="text-sm text-gray-300  font-extralight">Website</p>
+            </div>
+          </div>
+          <div>
+            <div className="bg-white h-[200px] lg:h-[270px] rounded-lg overflow-hidden relative">
+              <Image
+                src="/projects/nft.png"
+                alt="NFT Website"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-lg hover:scale-110 transition-all ease-in-out duration-200"
+              />
+            </div>
+            <div className="m-2">
+              <h1 className="text-white">NFT - Romance Theme</h1>
+              <p className="text-sm text-gray-300  font-extralight">
+                Website Design
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <div className="bg-white h-[200px] lg:h-[270px] rounded-lg overflow-hidden relative">
+              <Image
+                src="/projects/knightindungeon.png"
+                alt="Knights in Dungeon"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-lg hover:scale-110 transition-all ease-in-out duration-200"
+              />
+            </div>
+            <div className="m-2">
+              <h1 className="text-white">Knights in Dungeon</h1>
+              <p className="text-sm text-gray-300  font-extralight">
+                Game Development
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <div className="bg-white h-[200px] lg:h-[270px] rounded-lg overflow-hidden relative">
+              <Image
+                src="/projects/tictactoe.png"
+                alt="Tic Tac Toen"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-lg hover:scale-110 transition-all ease-in-out duration-200"
+              />
+            </div>
+            <div className="m-2">
+              <h1 className="text-white">TicTacToe</h1>
+              <p className="text-sm text-gray-300  font-extralight">
+                Game Development
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
@@ -547,7 +648,14 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20">
+    <motion.section
+      initial={{ y: 200, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ type: "spring", stiffness: 100, damping: 20, duration: 1 }}
+      viewport={{ once: true }}
+      id="contact"
+      className="py-10 lg:py-20"
+    >
       <div
         className={`border border-white/15 max-w-[1152px] rounded-2xl p-8 mx-4 xl:mx-auto transition-all ease-in-out duration-300`}
       >
@@ -604,7 +712,7 @@ export const Contact = () => {
         {/* Popup Component */}
         {popupVisible && (
           <div className="fixed inset-0 flex items-center justify-center ">
-            <div className="bg-[#1D1D21]  p-4  rounded-lg text-center">
+            <div className="bg-[#1D1D21]  p-4  rounded-lg text-center border border-white/10">
               <p className="text-[#3478F6] py-4">
                 Your message has been sent successfully!
               </p>
@@ -618,6 +726,6 @@ export const Contact = () => {
           </div>
         )}
       </div>
-    </section>
+    </motion.section>
   );
 };
