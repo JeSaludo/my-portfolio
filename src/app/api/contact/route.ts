@@ -31,12 +31,12 @@ export async function POST(request: NextRequest) {
       text: `Hi ${fname},\n\nThank you for reaching out. We have received your message and will get back to you shortly.\n\nYour message: ${message}\n\nBest regards,\nJan Eris Saludo`,
     };
 
-    transporter.sendMail(mailOptions, (error, info) => {
+    await transporter.sendMail(mailOptions, async (error, info) => {
       if (error) {
         console.error("Error sending email: ", error);
       } else {
         console.log("Email sent: ", info.response);
-        transporter.sendMail(clientMailOptions, (error, info) => {
+        await transporter.sendMail(clientMailOptions, (error, info) => {
           if (error) {
             return console.log(error);
           }
@@ -48,7 +48,7 @@ export async function POST(request: NextRequest) {
       }
     });
 
-    return NextResponse.json({ email, fname, message });
+    return NextResponse.json({ success: "ok" });
   } catch (error: any) {
     return NextResponse.json({
       error: "Something went wrong: " + error.message,
