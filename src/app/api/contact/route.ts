@@ -31,23 +31,30 @@ export async function POST(request: NextRequest) {
       text: `Hi ${fname},\n\nThank you for reaching out. We have received your message and will get back to you shortly.\n\nYour message: ${message}\n\nBest regards,\nJan Eris Saludo`,
     };
 
-    await transporter.sendMail(mailOptions, async (error, info) => {
-      if (error) {
-        console.error("Error sending email: ", error);
-      } else {
-        console.log("Email sent: ", info.response);
-        await transporter.sendMail(clientMailOptions, (error, info) => {
+    await Promise.all([
+      new Promise((resolve, reject) => {
+        transporter.sendMail(mailOptions, (error, info) => {
           if (error) {
-            return console.log(error);
+            console.error("Error sending email: ", error);
+            reject(error);
+          } else {
+            console.log("Email sent: ", info.response);
+            resolve(info);
           }
-          console.log(
-            "Confirmation message sent to client: %s",
-            info.messageId
-          );
         });
-      }
-    });
-
+      }),
+      new Promise((resolve, reject) => {
+        transporter.sendMail(clientMailOptions, (error, info) => {
+          if (error) {
+            console.error("Error sending confirmation email: ", error);
+            reject(error);
+          } else {
+            console.log("Confirmation email sent: ", info.response);
+            resolve(info);
+          }
+        });
+      }),
+    ]);
     return NextResponse.json({ success: "ok" });
   } catch (error: any) {
     return NextResponse.json({
