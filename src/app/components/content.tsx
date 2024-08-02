@@ -513,6 +513,8 @@ export const Contact = () => {
     message: "",
   });
 
+  const [popupVisible, setPopupVisible] = useState(false); // State for popup visibility
+
   const OnSubmit = async (e: any) => {
     e.preventDefault();
     try {
@@ -533,13 +535,21 @@ export const Contact = () => {
         email: "",
         message: "",
       });
-    } catch (error: any) {}
+
+      setPopupVisible(true); // Show popup on success
+    } catch (error: any) {
+      console.error(error); // Optionally handle the error
+    }
+  };
+
+  const handleClosePopup = () => {
+    setPopupVisible(false); // Hide popup
   };
 
   return (
     <section id="contact" className="py-20">
       <div
-        className={`border border-white/15 max-w-[1152px]  rounded-2xl p-8 mx-4 xl:mx-auto ${poppins.className} transition-all ease-in-out duration-300`}
+        className={`border border-white/15 max-w-[1152px] rounded-2xl p-8 mx-4 xl:mx-auto transition-all ease-in-out duration-300`}
       >
         <div className="space-y-3 mb-8">
           <h1 className="font-bold text-3xl text-white">Contact</h1>
@@ -555,6 +565,8 @@ export const Contact = () => {
                 type="text"
                 className="w-full py-2 placeholder:px-4 px-4 placeholder:text-[#ACACAC] rounded-md border-white/10 bg-transparent border"
                 placeholder="Full Name"
+                value={info.fname}
+                required
               />
               <input
                 onChange={(e) => {
@@ -563,27 +575,48 @@ export const Contact = () => {
                 type="email"
                 className="w-full py-2 placeholder:px-4 px-4 placeholder:text-[#ACACAC] rounded-md border-white/10 bg-transparent border"
                 placeholder="Email Address"
+                value={info.email}
+                required
               />
             </div>
 
             <textarea
-              className="w-full py-2  placeholder:px-4 px-4 placeholder:text-[#ACACAC] rounded-md border-white/10 bg-transparent border"
+              className="w-full py-2 placeaholder:px-4 px-4 placeholder:text-[#ACACAC] rounded-md border-white/10 bg-transparent border"
               placeholder="Message"
               rows={5}
               onChange={(e) => {
                 setInfo({ ...info, message: e.target.value });
               }}
+              value={info.message}
+              required
             ></textarea>
 
             <div className="flex justify-end">
               <button type="submit">
-                <span className="flex justify-items-end items-center gap-2 text-[#3478F6]  bg-[#1D1D21] border py-2 px-4 rounded-lg border-white/10 ">
-                  <BsFillSendFill className=" flex" /> Send Message
+                <span className="flex justify-items-end items-center gap-2 text-[#3478F6] bg-[#1D1D21] border py-2 px-4 rounded-lg border-white/10">
+                  <BsFillSendFill className="flex" /> Send Message
                 </span>
               </button>
             </div>
           </div>
         </form>
+
+        {/* Popup Component */}
+        {popupVisible && (
+          <div className="fixed inset-0 flex items-center justify-center ">
+            <div className="bg-[#1D1D21]  p-4  rounded-lg text-center">
+              <p className="text-[#3478F6] py-4">
+                Your message has been sent successfully!
+              </p>
+              <button
+                className="mt-2 px-4 py-2 border border-white/10 text-white rounded-lg "
+                onClick={handleClosePopup}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
