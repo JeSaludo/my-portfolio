@@ -1,4 +1,3 @@
-import { EmailTemplate } from "@/app/components/email-template";
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
@@ -21,7 +20,7 @@ export async function POST(request: NextRequest) {
 
     const mailOptions = {
       from: process.env.GMAIL_EMAIL_ADDRESS,
-      to: ".work@gmail.com",
+      to: process.env.RECEIVER_EMAIL_ADDRESS,
       subject: "New Message from JS Web Portfolio",
       text: `Dear Recipient,
     
