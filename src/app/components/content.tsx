@@ -333,7 +333,7 @@ export const Resume = () => {
               <h2 className="text-lg font-medium">
                 Lord of Lords Christian School
               </h2>
-              <p className="text-sm">2008 - 2014</p>
+              <p className="text-sm text-gray-400">2008 - 2014</p>
             </li>
 
             <li className="mb-4 ms-4">
@@ -348,7 +348,7 @@ export const Resume = () => {
               <h2 className="text-lg font-medium">
                 Marinduque National High School
               </h2>
-              <p className="text-sm">2014 - 2018</p>
+              <p className="text-sm text-gray-400">2014 - 2018</p>
             </li>
 
             <li className="mb-4 ms-4">
@@ -363,7 +363,7 @@ export const Resume = () => {
               <h2 className="text-lg font-medium">
                 Marinduque Midwest College
               </h2>
-              <p className="text-sm">2018 - 2020</p>
+              <p className="text-sm text-gray-400">2018 - 2020</p>
             </li>
             <li className=" ms-4 ">
               <Image
@@ -377,8 +377,10 @@ export const Resume = () => {
               <h2 className="text-lg font-medium">
                 Marinduque State University
               </h2>
-              <p className="text-sm font-light font">2020 - 2024</p>
-              <p className="text-sm">
+              <p className="text-sm font-light font text-gray-400">
+                2020 - 2024
+              </p>
+              <p className="text-sm text-gray-400">
                 Bachelor of Science in Information Technology - Major in
                 Software Development
               </p>
@@ -409,8 +411,10 @@ export const Resume = () => {
                   Internship - Software Development
                 </h2>
                 <h2 className="text-lg font-medium">Cloud Manila</h2>
-                <p className="text-sm font-light font">February - May 2024</p>
-                <p className="text-sm">
+                <p className="text-sm font-light font text-gray-400">
+                  February - May 2024
+                </p>
+                <p className="text-sm text-gray-400">
                   I have extensive experience in identifying and fixing bugs in
                   software systems. I also add new features to existing systems
                   that use AngularJS and ASP.NET, improving their functionality
