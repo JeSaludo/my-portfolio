@@ -15,7 +15,7 @@ import { TbApi } from "react-icons/tb";
 import { IoMdBook } from "react-icons/io";
 import { BsFillSendFill } from "react-icons/bs";
 import { useState } from "react";
-
+import { AiOutlineDownload } from "react-icons/ai";
 import { motion } from "framer-motion";
 
 const saira = Saira({
@@ -293,9 +293,20 @@ export const Resume = () => {
             <h1 className="font-bold text-3xl text-white">Resume</h1>
             <div className="bg-[#41A2EB] w-[54px] h-2 rounded-md"></div>
           </div>
-          <button className="hover:bg-[#232328] bg-[#1D1D21] w-[160px] h-[50px] flex justify-center items-center text-white rounded-md text-[18px]">
+          <a
+            href="/resume/resume-janerissaludo.pdf"
+            download
+            className="hidden md:flex hover:bg-[#232328] bg-[#1D1D21] w-[160px] h-[50px]  justify-center items-center text-white rounded-md text-[18px]"
+          >
             Download
-          </button>
+          </a>
+          <a
+            href="/resume/resume-janerissaludo.pdf"
+            download
+            className="flex md:hidden hover:bg-[#232328] bg-[#1D1D21] w-[60px] h-[50px]  justify-center items-center text-white rounded-md text-[18px]"
+          >
+            <AiOutlineDownload />
+          </a>
         </div>
 
         <div className="my-8 lg:mx-12">
@@ -482,7 +493,7 @@ export const Portfolio = () => {
             <div className="m-2 ">
               <h1 className="text-white">Equali</h1>
               <p className="text-sm text-gray-300  font-extralight">
-                Website Development
+                Web Development
               </p>
             </div>
           </div>
